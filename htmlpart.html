@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>贪吃蛇</title>
+    <link rel="stylesheet" href="csspart.css">
+</head>
+<body>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <div class="head">
+        <div class="showlogin">
+            <div class="login">登陆</div>
+            <div class="loginform">
+                <form action="">
+                    <table>
+                        <input type="text" value="请输入您的账号">
+                        <input type="password" value="请输入您的密码">
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="status">登陆状态:</div>
+        <div class="scores">得分：</div>
+        <div id="scorenum"></div>
+    </div>
+    <div class="content">
+        <div id="comments">
+            <div class="line"></div>
+            <div class="piece">
+                <div class="commenthead">xxx发表评论：</div>
+                <div class="commentinner"></div>
+                <div class="commentdate">于2019-7-13 20:00</div>
+            </div>
+            <div class="commentplace">
+                <form action="phppart.php" method="POST">
+                    <input type="text" placeholder="说点什么" class="text" name="comments">
+                    <input type="submit" value="发布" class="submit"> 
+                </form>
+            </div>
+        </div>
+        <div class="btn startbtn"><button>开始游戏</button></div>
+        <div class="btn pausebtn"><button>暂停</button></div>
+        <div id="snakewrap">
+            <div class="snakehead" style="display: none"></div>
+            <div class="snakebody" style="display: none"></div>
+            <!-- <div class="food" style="display: none"></div> -->
+        </div>
+    </div>
+    <!-- 下面是前后端连接 -->
+    <script>
+        var result;
+        var i;
+        $.ajax({
+            url : "print.php",
+            type : "post",				
+            dataType : "json",
+            async: false,
+            success : function(data) {
+                result = data;
+            },
+            error : function() {
+                alert('出现异常啦...');
+            }
+        });
+        //循环按css样式输出最后五条评论
+        for(i=result.length-1; i>result.length-6; i--){
+            var para1 = document.createElement("div");
+            para1.className="piece";
+            var para2 = document.createElement("div");
+            para2.className="commenthead";
+            var para3 = document.createElement("div");
+            para3.className="commentinner";
+            var para4 = document.createElement("div");
+            para4.className="commentdate";
+            var num = result;
+            var node2 = document.createTextNode("xxx发布了评论");
+            var node3 = document.createTextNode(num[i].comment);
+            var node4 = document.createTextNode(num[i].time);
+           
+            para2.appendChild(node2);
+            para3.appendChild(node3);
+            para4.appendChild(node4);
+
+            
+            para1.appendChild(para2);
+            para1.appendChild(para3);
+            para1.appendChild(para4);
+            var element = document.getElementById("comments");
+
+            element.appendChild(para1);
+        }
+    </script>
+
+    <!-- 主体结构 -->
+    <script src="jspart.js"></script>
+</body>
+</html>

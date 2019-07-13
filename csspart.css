@@ -1,0 +1,185 @@
+.content {
+    width: 640px;
+    height: 640px;
+    margin: 10px;
+    /* 距离上面100px，然后居中。 */
+    position: relative;
+    /* 需要相对定位，因为大框架中有许多小的元素。 */
+}
+.btn {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    /* 使按钮可以浮在元素的上面 */
+}
+.btn button {
+    background: none;
+    border: none;
+    background-size: 100% 100%;
+    cursor: pointer;
+    /* 鼠标停在上面，变样子 */
+    outline: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+.startbtn button {
+    width: 200px;
+    height: 80px;
+    margin-left: -100px;
+    margin-top: -40px;
+    /* 这个margin可以使中心对应中心 */
+}
+.pausebtn{
+    display: none;
+    /* 这里使下面的标签一开始不显示 */
+}
+.pausebtn button {
+    width: 200px;
+    height: 80px;
+    margin-left: -100px;
+    margin-top: -40px;
+    display: block;
+}
+#snakewrap {
+    width: 600px;
+    height: 600px;
+    background-color: burlywood;
+    border: 20px solid #7dd9ff;
+    position: relative;
+    
+}
+#snakewrap div {
+    width: 20px;
+    height: 20px;
+}
+.snakehead {
+    background-color: cadetblue;
+}
+.snakebody {
+    background-color: aquamarine;
+}
+.food {
+    background-color: brown;
+}
+.head {
+    background-color: blanchedalmond;
+    position: relative;
+    height: 40px;
+    width: 660px;
+}
+.showlogin {
+    position: absolute;
+    left: 25px;
+}
+.login {
+    position: absolute;
+    width: 40px;
+    height: 25px;
+    top: 8px;
+    background-color: grey;
+    text-align: center;
+}
+.status {
+    position: absolute;
+    left: 400px;
+    width: 80px;
+    height: 40px;
+    top: 10px;
+}
+.scores {
+    width: 80px;
+    height: 40px;
+    position: absolute;
+    left: 550px;
+    top: 10px;
+}
+.loginform {
+    position: absolute;
+    top: 40px;
+    z-index: 3;
+    height: 150px;
+    border: 1px solid #ccc;
+    box-shadow: #ccc 0px 0px 0px 2px;
+    display: none;
+    background-color: #fff;
+}
+#scorenum {
+    width: 80px;
+    height: 40px;
+    position: absolute;
+    left: 600px;
+    top: 10px;
+}
+#comments {
+    position: absolute;
+    width: 400px;
+    height: 650px;
+    left: 670px;
+}
+.line {
+    width: 2px;
+    height: 650px;
+    background-color: dimgrey;
+    position: absolute;
+    
+}
+.commentplace {
+    position: absolute;
+    top: 575px;
+    left: 100px;
+    border-style: dotted none none none ;
+    width: 400px;
+    height: 50px;
+}
+.text {
+    margin: 10px;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+}
+.submit {
+    width: 120px;
+    height: 50px;
+    background-color: darkgray;
+    font-size: 20px;
+    border-style: hidden;
+    
+}
+.submit:hover {
+    background-color: aliceblue;
+    transition-duration: 500ms;
+}
+
+.piece {
+    border-style: none none solid none;
+    border-color: darkslategrey;
+    width: 600px;
+    height: 80px;
+}
+.commenthead {
+    font-size: 20px;
+    position: absolute;
+    left: 10px;
+    color: dimgrey
+}
+.commentinner {
+    position: relative;
+    left: 10px;
+    font-size: 15px;
+    width: 400px;
+    height: 50px;
+    top: 25px;
+}
+.commentdate {
+    position: relative;
+    width: 150px;
+    height: 26px;
+    bottom: 50px;
+    left: 300px;
+    font-size: 15px;
+}
